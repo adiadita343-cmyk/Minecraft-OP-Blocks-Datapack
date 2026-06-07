@@ -29,7 +29,8 @@ public abstract class PlayerEntityMixin implements PlayerEntityCooldownAccess {
         nbt.putLong("UltimateOPBlocks_LastCosmicDropTime", ultimateopblocks_lastCosmicDropTime);
     }
 
-    @Inject(method = "readCustomDataToNbt", at = @At("TAIL"))
+    // Corect: readCustomDataFromNbt
+    @Inject(method = "readCustomDataFromNbt", at = @At("TAIL"))
     private void onReadCustomData(NbtCompound nbt, CallbackInfo ci) {
         if (nbt.contains("UltimateOPBlocks_LastCosmicDropTime")) {
             ultimateopblocks_lastCosmicDropTime = nbt.getLong("UltimateOPBlocks_LastCosmicDropTime");
