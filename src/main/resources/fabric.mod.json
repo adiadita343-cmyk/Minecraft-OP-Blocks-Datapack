@@ -1,0 +1,29 @@
+{
+    "schemaVersion": 1,
+    "id": "opblocks",
+    "version": "${version}",
+    "name": "UltimateOPBlocks",
+    "description": "Every block you break unleashes a rain of 64 diamond blocks, max‑enchanted (255) god‑tier netherite gear, and time‑gated cosmic drops – fully multiplayer compatible.",
+    "authors": ["AdiAdita"],
+    "contact": {
+        "homepage": "https://github.com/adiadita/ultimateopblocks",
+        "sources": "https://github.com/adiadita/ultimateopblocks"
+    },
+    "license": "MIT",
+    "icon": "assets/opblocks/icon.png",
+    "environment": "*",
+    "entrypoints": {
+        "main": [
+            "net.adiadita.opblocks.UltimateOPBlocks"
+        ]
+    },
+    "mixins": [
+        "opblocks.mixins.json"
+    ],
+    "depends": {
+        "fabricloader": ">=0.15.11",
+        "minecraft": "~1.21.1",
+        "java": ">=21",
+        "fabric-api": "*"
+    }
+}
