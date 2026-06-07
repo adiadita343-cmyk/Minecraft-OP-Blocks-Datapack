@@ -10,6 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.registry.entry.RegistryEntry;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -36,7 +37,8 @@ public class GodItemGenerator {
     }
 
     private static void applyMaxEnchantments(ItemStack stack, RegistryWrapper.WrapperLookup registryLookup) {
-        RegistryWrapper.Impl<Enchantment> enchantmentRegistry =
+        // Obținem registry-ul de enchant-uri ca wrapper
+        RegistryWrapper<Enchantment> enchantmentRegistry =
                 registryLookup.getWrapperOrThrow(RegistryKeys.ENCHANTMENT);
 
         Item item = stack.getItem();
@@ -98,11 +100,12 @@ public class GodItemGenerator {
         }
     }
 
-    private static void addEnchantment(ItemStack stack, Enchantment enchantment, int level) {
+    // AICI e corecția: primim RegistryEntry<Enchantment>, nu Enchantment
+    private static void addEnchantment(ItemStack stack, RegistryEntry<Enchantment> enchantmentEntry, int level) {
         ItemEnchantmentsComponent existing = stack.getOrDefault(DataComponentTypes.ENCHANTMENTS,
                 ItemEnchantmentsComponent.DEFAULT);
         ItemEnchantmentsComponent.Builder builder = new ItemEnchantmentsComponent.Builder(existing);
-        builder.add(enchantment, level);
+        builder.add(enchantmentEntry, level); // acum se potrivește tipul
         stack.set(DataComponentTypes.ENCHANTMENTS, builder.build());
     }
 }
