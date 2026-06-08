@@ -1,5 +1,6 @@
 package net.adiadita.opblocks.mixin;
 
+import net.adiadita.opblocks.util.PlayerEntityCooldownAccess;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
 import org.spongepowered.asm.mixin.Mixin;
