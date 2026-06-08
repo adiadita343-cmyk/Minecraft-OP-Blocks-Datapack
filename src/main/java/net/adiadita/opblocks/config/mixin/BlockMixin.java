@@ -1,5 +1,6 @@
 package net.adiadita.opblocks.mixin;
 
+import net.adiadita.opblocks.util.PlayerEntityCooldownAccess;
 import net.adiadita.opblocks.config.ModConfig;
 import net.adiadita.opblocks.util.GodItemGenerator;
 import net.minecraft.block.Block;
